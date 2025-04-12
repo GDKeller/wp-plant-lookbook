@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "plants-plugin/species",
+	"title": "Species",
+	"category": "custom-blocks",
+	"description": "A block to display species information.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./edit.js",
+	"style": "file:./style.css",
+	"attributes": {
+		"speciesFormalName": {
+			"type": "string",
+			"default": ""
+		},
+		"speciesCommonName": {
+			"type": "string",
+			"default": ""
+		},
+		"speciesDescription": {
+			"type": "string",
+			"default": ""
+		},
+		"speciesImage": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "plants-plugin/biome",
+	"title": "Biome",
+	"category": "text",
+	"description": "A block to display biome information.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"editorScript": "file:./edit.js",
+	"style": "file:./style.css",
+	"attributes": {
+		"biomeName": {
+			"type": "string",
+			"default": ""
+		},
+		"biomeDescription": {
+			"type": "string",
+			"default": ""
+		},
+		"biomeImage": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
