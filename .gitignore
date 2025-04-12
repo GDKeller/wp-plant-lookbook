@@ -1,0 +1,7 @@
+plugins/index.php
+plugins/akismet/
+themes/index.php
+themes/twentytwentyfive/
+uploads/
+upgrade/
+upgrade-temp-backup/

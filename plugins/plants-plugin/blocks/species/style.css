@@ -1,3 +1,15 @@
 .wp-block-plants-plugin-species {
-    border: 2px solid red;
+    position: relative;
+    display: flex;
+}
+
+.wp-block-plants-plugin-species > div {
+    display: block;
+    flex: 1;
+    width: 50%;
+}
+
+.wp-block-plants-plugin-species .species__image {
+    width: 100%;
+    height: auto;
 }
