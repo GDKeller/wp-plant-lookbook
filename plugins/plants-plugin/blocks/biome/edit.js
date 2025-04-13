@@ -10,7 +10,7 @@
 		attributes: {
 			biomeName: { type: "string", default: "" },
 			biomeDescription: { type: "string", default: "" },
-			biomeImage: { type: "string", default: "" }
+			biomeImage: { type: "object", default: {} }
 		},
         edit: function({ attributes, setAttributes }) {
 			const { biomeName, biomeDescription, biomeImage } = attributes;

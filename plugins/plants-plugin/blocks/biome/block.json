@@ -21,8 +21,8 @@
 			"default": ""
 		},
 		"biomeImage": {
-			"type": "string",
-			"default": ""
+			"type": "object",
+			"default": {}
 		}
 	}
 }

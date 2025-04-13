@@ -12,6 +12,10 @@
 	"editorScript": "file:./edit.js",
 	"style": "file:./style.css",
 	"attributes": {
+		"flipped": {
+			"type": "boolean",
+			"default": false
+		},
 		"speciesFormalName": {
 			"type": "string",
 			"default": ""
@@ -25,8 +29,8 @@
 			"default": ""
 		},
 		"speciesImage": {
-			"type": "string",
-			"default": ""
+			"type": "object",
+			"default": {}
 		}
 	}
 }
