@@ -7,19 +7,22 @@
  * @package PlantsPlugin
  */
 
-$align = $attributes['align'] ?? '';
-$common = esc_html( $attributes['speciesCommonName'] ?? '' );
-$formal = esc_html( $attributes['speciesFormalName'] ?? '' );
-$desc   = esc_html( $attributes['speciesDescription'] ?? '' );
+$align = $attributes["align"] ?? "";
+$common = esc_html( $attributes["speciesCommonName"] ?? "" );
+$formal = esc_html( $attributes["speciesFormalName"] ?? "" );
+$desc   = esc_html( $attributes["speciesDescription"] ?? "" );
 
-$image = $attributes['speciesImage']['url'] ?? '';
+$image = $attributes["speciesImage"]["url"] ?? "";
 
-$class = 'species-block';
-if ( ! empty( $attributes['flipped'] ) ) {
-	$class .= ' flipped';
+$class = "species-block";
+if ( ! empty( $attributes["flipped"] ) ) {
+	$class .= " flipped";
 }
 if ( ! empty( $align ) ) {
-	$class .= ' align' . $align;
+	$class .= " align" . $align;
+}
+if ( ! empty( $attributes["className"] ) ) {
+	$class .= " " . esc_attr( $attributes["className"] );
 }
 ?>	
 

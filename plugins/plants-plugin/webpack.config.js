@@ -17,6 +17,10 @@ glob.sync("./src/blocks/*/style.scss").forEach(file => {
   const blockName = path.basename(path.dirname(file));
   cssEntries[`blocks/${blockName}/style`] = path.resolve(__dirname, file);
 });
+// glob.sync("./src/block-styles/*.scss").forEach(file => {
+//     const name = path.basename(file, ".scss");
+//     cssEntries[`block-styles/${name}`] = path.resolve(__dirname, file);
+//   });
 
 module.exports = [
     {

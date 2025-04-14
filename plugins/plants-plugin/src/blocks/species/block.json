@@ -36,5 +36,15 @@
 			"type": "object",
 			"default": {}
 		}
-	}
+	},
+	"styles": [
+		{
+			"name": "dark",
+			"label": "Dark"
+		},
+		{
+			"name": "boxed",
+			"label": "Boxed"
+		}
+	]
 }

@@ -189,15 +189,23 @@
 						}
 					},
                     "small": {
-                        "spacing": {
+                        "spacing": {                            
                             "padding": {
                                 "bottom": "0.5rem",
-                                "left": "1.5rem",
-                                "right": "1.5rem",
+                                "left": "1rem",
+                                "right": "1rem",
                                 "top": "0.5rem"
                             }
+                        },
+                        "typography": {
+                            "fontSize": "var:preset|font-size|small"
                         }
-                    }
+                    },
+                    "rounded": {
+                        "border": {
+                            "radius": "1rem"
+                        }
+                    }   
 				}
 			},
 			"core/columns": {

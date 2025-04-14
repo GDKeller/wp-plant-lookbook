@@ -1,6 +1,9 @@
 .species-block {
 	display: flex;
 	// gap: 2rem;
+	padding: 1rem;
+	margin-bottom: 1rem;
+
 
 	* {
 		box-sizing: border-box;
@@ -45,8 +48,23 @@
 		}
 	}
 
+	&.alignfull {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	&.flipped &__info-inner {
 		padding-right: 0;
 		padding-left: 2rem;
+	}
+
+	&.is-style-dark {
+		background-color: color-mix(in srgb, var(--wp--preset--color--accent-2) 40%, var(--wp--preset--color--contrast));
+		color: var(--wp--preset--color--base);
+	}
+
+	&.is-style-boxed {	
+		border: 1px solid var(--wp--preset--color--accent-2);
+		padding: 1rem;
 	}
 }
