@@ -1,6 +1,10 @@
 .species-block {
 	display: flex;
-	gap: 2rem;
+	// gap: 2rem;
+
+	* {
+		box-sizing: border-box;
+	}
 
 	&.flipped {
 		flex-direction: row-reverse;
@@ -10,14 +14,28 @@
 		align-items: center;
 		display: flex;
 		flex: 1;
+		
+		&-inner {
+			padding-bottom: 2rem;
+			padding-right: 2rem;
+			padding-top: 1.5rem;
+		}
+
+	}
+
+	&__name {
+		margin-bottom: 0.5rem;
+		margin-top: 0;
 	}
 
 	&__binomial {
         font-style: italic;
+		margin-top: 0;
     }
 
 	&__image-container {
 		flex: 1;
+		overflow: hidden;
 		max-height: 100vh;
 
 		img {
@@ -25,5 +43,10 @@
 			object-fit: cover;
 			width: 100%;
 		}
+	}
+
+	&.flipped &__info-inner {
+		padding-right: 0;
+		padding-left: 2rem;
 	}
 }

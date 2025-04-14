@@ -26,15 +26,15 @@ if ( ! empty( $align ) ) {
 <div class="<?php echo esc_attr( $class ); ?>">
 	<div class="species-block__info">
 		<div class="species-block__info-inner">
-			<h2><?php echo $common; ?></h2>
+			<h2 class="species-block__name"><?php echo $common; ?></h2>
 			<p class="species-block__binomial"><?php echo $formal; ?></p>
-			<p><?php echo $desc; ?></p>
+			<p class="species-block__description"><?php echo $desc; ?></p>
 		</div>
 	</div>
 
 	<?php if ( $image ) : ?>
 		<div class="species-block__image-container">
-			<img src="<?php echo esc_url( $image ); ?>" alt="" />
+			<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_html( $alt ) ?>" />
 		</div>
 	<?php endif; ?>
 </div>

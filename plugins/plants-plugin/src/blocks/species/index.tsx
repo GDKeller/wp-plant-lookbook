@@ -61,27 +61,29 @@ registerBlockType("plants-plugin/species", {
 				<div {...blockProps}>
 					<div className="species-block__content">
 						<div className="species-block__info">
-							<RichText
-								tagName="h2"
-								className="species-block__name"
-								value={speciesCommonName}
-								onChange={(val: string) => setAttributes({ speciesCommonName: val })}
-								placeholder="Species name"
-							/>
-							<RichText
-								tagName="h3"
-								className="species-block__binomial"
-								value={speciesFormalName}
-								onChange={(val: string) => setAttributes({ speciesFormalName: val })}
-								placeholder="Scientific name"
-							/>
-							<RichText
-								tagName="p"
-								className="species-block__description"
-								value={speciesDescription}
-								onChange={(val: string) => setAttributes({ speciesDescription: val })}
-								placeholder="Species description"
-							/>
+							<div className="species-block__info-inner">
+								<RichText
+									tagName="h2"
+									className="species-block__name"
+									value={speciesCommonName}
+									onChange={(val: string) => setAttributes({ speciesCommonName: val })}
+									placeholder="Species name"
+								/>
+								<RichText
+									tagName="h3"
+									className="species-block__binomial"
+									value={speciesFormalName}
+									onChange={(val: string) => setAttributes({ speciesFormalName: val })}
+									placeholder="Scientific name"
+								/>
+								<RichText
+									tagName="p"
+									className="species-block__description"
+									value={speciesDescription}
+									onChange={(val: string) => setAttributes({ speciesDescription: val })}
+									placeholder="Species description"
+								/>
+							</div>
 						</div>
 						<div className="species-block__image-wrapper">
 							{speciesImage?.url ? (

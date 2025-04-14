@@ -15,9 +15,10 @@
     }
 
     &__info {
-        // display: flex;
-        // flex-direction: column;
-        // justify-content: center;
+        align-items: start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     &__binomial {
@@ -26,6 +27,7 @@
 
     &__image-container {
         height: 100%;
+        overflow: hidden;
         width: 100%;
         
         img {
