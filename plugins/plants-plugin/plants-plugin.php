@@ -88,34 +88,34 @@ add_action( "init", "plants_plugin_register_blocks" );
 
 # Register block styles
 function register_custom_block_style() {
-	// wp_register_style(
-	// 	'plants-plugin/button-small-style',
-	// 	plugins_url( 'dist/block-styles/button-small.css', __FILE__ ),
-	// 	[],
-	// 	filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-small.css' )
-	// );
-	// wp_register_style(
-	// 	'plants-plugin/button-rounded-style',
-	// 	plugins_url( 'dist/block-styles/button-rounded.css', __FILE__ ),
-	// 	[],
-	// 	filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-rounded.css' )
-	// );
+	wp_register_style(
+		'plants-plugin/button-small-style',
+		plugins_url( 'dist/block-styles/button-small.css', __FILE__ ),
+		[],
+		filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-small.css' )
+	);
+	wp_register_style(
+		'plants-plugin/button-rounded-style',
+		plugins_url( 'dist/block-styles/button-rounded.css', __FILE__ ),
+		[],
+		filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-rounded.css' )
+	);
 
-	// register_block_style(
-	// 	'core/button',
-	// 	array(
-	// 		'name'         => 'small',
-	// 		'label'        => 'Small',
-	// 		'style_handle' => 'plants-plugin/button-small-style',
-	// 	)
-	// );
-	// register_block_style(
-	// 	'core/button',
-	// 	array(
-	// 		'name'         => 'rounded',
-	// 		'label'        => 'Rounded',
-	// 		'style_handle' => 'plants-plugin/button-rounded-style',
-	// 	)
-	// );
+	register_block_style(
+		'core/button',
+		array(
+			'name'         => 'small',
+			'label'        => 'Small',
+			'style_handle' => 'plants-plugin/button-small-style',
+		)
+	);
+	register_block_style(
+		'core/button',
+		array(
+			'name'         => 'rounded',
+			'label'        => 'Rounded',
+			'style_handle' => 'plants-plugin/button-rounded-style',
+		)
+	);
 }
 add_action( 'init', 'register_custom_block_style' );
