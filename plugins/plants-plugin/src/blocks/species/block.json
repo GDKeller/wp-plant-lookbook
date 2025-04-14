@@ -9,8 +9,10 @@
 	"supports": {
 		"html": false
 	},
-	"editorScript": "file:./edit.js",
-	"style": "file:./style.css",
+	"editorScript": "plants-plugin/species/block",
+	"editorStyle": "plants-plugin/species/editor",
+	"style": "plants-plugin/species/style",
+	"render": "../../../render/block-species.php",
 	"attributes": {
 		"flipped": {
 			"type": "boolean",

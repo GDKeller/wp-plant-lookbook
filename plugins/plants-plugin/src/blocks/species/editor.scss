@@ -1,0 +1,24 @@
+.wp-block-plants-plugin-species {
+    position: relative;
+    display: block;
+
+    .content {
+        display: flex;
+        gap: 1rem;
+
+        > div {
+            display: block;
+            flex: 1;
+            width: 50%;
+        }
+    }
+
+    .species__image {
+        width: 100%;
+        height: auto;
+    }
+
+    &.flipped .content {
+        flex-direction: row-reverse;
+    }
+}

@@ -1,0 +1,22 @@
+.species-block {
+	display: flex;
+	gap: 2rem;
+	align-items: flex-start;
+
+	&.flipped {
+		flex-direction: row-reverse;
+	}
+
+	.species-info {
+		flex: 1;
+	}
+
+	.species-image {
+		flex: 1;
+		img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+	}
+}
