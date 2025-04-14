@@ -1,3 +1,4 @@
+# WordPress
 plugins/index.php
 plugins/akismet/
 themes/index.php
@@ -5,3 +6,7 @@ themes/twentytwentyfive/
 uploads/
 upgrade/
 upgrade-temp-backup/
+
+# Build
+node_modules/
+dist/
