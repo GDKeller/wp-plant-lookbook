@@ -59,33 +59,33 @@ registerBlockType("plants-plugin/species", {
 
 				</InspectorControls>
 				<div {...blockProps}>
-					<div className="content">
-						<div className="species-info">
+					<div className="species-block__content">
+						<div className="species-block__info">
 							<RichText
 								tagName="h2"
-								className="species-common-name"
+								className="species-block__name"
 								value={speciesCommonName}
 								onChange={(val: string) => setAttributes({ speciesCommonName: val })}
 								placeholder="Species name"
 							/>
 							<RichText
 								tagName="h3"
-								className="species-formal-name"
+								className="species-block__binomial"
 								value={speciesFormalName}
 								onChange={(val: string) => setAttributes({ speciesFormalName: val })}
 								placeholder="Scientific name"
 							/>
 							<RichText
 								tagName="p"
-								className="species-description"
+								className="species-block__description"
 								value={speciesDescription}
 								onChange={(val: string) => setAttributes({ speciesDescription: val })}
 								placeholder="Species description"
 							/>
 						</div>
-						<div className="species-image">
+						<div className="species-block__image-wrapper">
 							{speciesImage?.url ? (
-								<div className="image-preview">
+								<div className="species-block__image-container">
 									<img
 										src={speciesImage.url}
 										alt={speciesImage.alt || ""}

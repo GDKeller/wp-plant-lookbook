@@ -24,14 +24,16 @@ if ( ! empty( $align ) ) {
 ?>	
 
 <div class="<?php echo esc_attr( $class ); ?>">
-	<div class="species-info">
-		<h2><?php echo $common; ?></h2>
-		<h3><em><?php echo $formal; ?></em></h3>
-		<p><?php echo $desc; ?></p>
+	<div class="species-block__info">
+		<div class="species-block__info-inner">
+			<h2><?php echo $common; ?></h2>
+			<p class="species-block__binomial"><?php echo $formal; ?></p>
+			<p><?php echo $desc; ?></p>
+		</div>
 	</div>
 
 	<?php if ( $image ) : ?>
-		<div class="species-image">
+		<div class="species-block__image-container">
 			<img src="<?php echo esc_url( $image ); ?>" alt="" />
 		</div>
 	<?php endif; ?>
