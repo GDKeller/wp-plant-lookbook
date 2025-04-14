@@ -14,6 +14,7 @@ registerBlockType("plants-plugin/species", {
 	title: "Species",
 	category: "custom-blocks",
 	attributes: {
+		anchor: { type: "string", default: "" },
 		flipped: { type: "boolean", default: false },
 		speciesFormalName: { type: "string", default: "" },
 		speciesCommonName: { type: "string", default: "" },
@@ -22,6 +23,7 @@ registerBlockType("plants-plugin/species", {
 	},
 	edit: ({ attributes, setAttributes }: BlockEditProps<any>) => {
 		const {
+			anchor,
 			flipped,
 			speciesCommonName,
 			speciesFormalName,
@@ -33,9 +35,8 @@ registerBlockType("plants-plugin/species", {
 			className: classNames(
 				"wp-block-plants-plugin-species",
 				"species-block",
-				{
-					"flipped": flipped
-				})
+				flipped ? "flipped" : ""
+			),
 		});
 
 		return (

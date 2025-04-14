@@ -7,7 +7,9 @@
 	"description": "A block to display species information.",
 	"example": {},
 	"supports": {
-		"html": false
+		"align": ["wide", "full"],
+		"html": false,
+		"renaming": false
 	},
 	"editorScript": "plants-plugin/species/block",
 	"editorStyle": "plants-plugin/species/editor",
