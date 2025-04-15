@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Plants Lookbook
- * Text Domain: plants-plugin
+ * Text Domain: plants-lookbook
  * Description: A plugin to manage plant species and their biomes.
  * Version: 0.1.0
  */
@@ -10,7 +10,7 @@ if ( ! defined( "ABSPATH" ) ) {
     exit; // Exit if accessed directly.
 }
 
-function plants_plugin_get_block_list() {
+function plants_lookbook_get_block_list() {
 	return [ 'species' ];
 }
 
@@ -32,9 +32,9 @@ add_filter( "block_categories_all" , function( $categories, $post ) {
 
 
 
-function plants_plugin_register_assets() {
-	foreach ( plants_plugin_get_block_list() as $block ) {
-		$handle_prefix = "plants-plugin/{$block}";
+function plants_lookbook_register_assets() {
+	foreach ( plants_lookbook_get_block_list() as $block ) {
+		$handle_prefix = "plants-lookbook/{$block}";
 		$block_dir     = plugin_dir_path( __FILE__ ) . "dist/blocks/{$block}";
 		$block_url     = plugin_dir_url( __FILE__ ) . "dist/blocks/{$block}";
 
@@ -70,32 +70,32 @@ function plants_plugin_register_assets() {
 		}
 	}
 }
-add_action( 'init', 'plants_plugin_register_assets' );
+add_action( 'init', 'plants_lookbook_register_assets' );
 
-function plants_plugin_register_blocks() {
-    foreach ( plants_plugin_get_block_list() as $block ) {
+function plants_lookbook_register_blocks() {
+    foreach ( plants_lookbook_get_block_list() as $block ) {
 		register_block_type(
 			__DIR__ . "/src/blocks/$block/block.json",
 			[
-				'editor_script'   => "plants-plugin/$block/block",
-				'editor_style'    => "plants-plugin/$block/editor",
-				'style'           => "plants-plugin/$block/style",
+				'editor_script'   => "plants-lookbook/$block/block",
+				'editor_style'    => "plants-lookbook/$block/editor",
+				'style'           => "plants-lookbook/$block/style",
 			]
 		);
 	}
 }
-add_action( "init", "plants_plugin_register_blocks" );
+add_action( "init", "plants_lookbook_register_blocks" );
 
 # Register block styles
 function register_custom_block_style() {
 	wp_register_style(
-		'plants-plugin/button-small-style',
+		'plants-lookbook/button-small-style',
 		plugins_url( 'dist/block-styles/button-small.css', __FILE__ ),
 		[],
 		filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-small.css' )
 	);
 	wp_register_style(
-		'plants-plugin/button-rounded-style',
+		'plants-lookbook/button-rounded-style',
 		plugins_url( 'dist/block-styles/button-rounded.css', __FILE__ ),
 		[],
 		filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-rounded.css' )
@@ -106,7 +106,7 @@ function register_custom_block_style() {
 		array(
 			'name'         => 'small',
 			'label'        => 'Small',
-			'style_handle' => 'plants-plugin/button-small-style',
+			'style_handle' => 'plants-lookbook/button-small-style',
 		)
 	);
 	register_block_style(
@@ -114,7 +114,7 @@ function register_custom_block_style() {
 		array(
 			'name'         => 'rounded',
 			'label'        => 'Rounded',
-			'style_handle' => 'plants-plugin/button-rounded-style',
+			'style_handle' => 'plants-lookbook/button-rounded-style',
 		)
 	);
 }

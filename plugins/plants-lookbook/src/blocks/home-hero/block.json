@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "plants-lookbook/home-hero",
+	"title": "Home Hero",
+	"category": "custom-blocks",
+	"description": "Home hero block.",
+	"example": {},
+	"supports": {},
+	"editorScript": "plants-lookbook/home-hero/block",
+	"editorStyle": "plants-lookbook/home-hero/editor",
+	"style": "plants-lookbook/home-hero/style",
+	"render": "../../../render/block-home-hero.php",
+	"attributes": {
+		"headine": {
+			"type": "string",
+			"default": ""
+		},
+		"subhead": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonText": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonLink": {
+			"type": "string",
+			"default": ""
+		},
+		"image": {
+			"type": "object",
+			"default": {}
+		}
+	}
+}

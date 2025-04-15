@@ -4,7 +4,7 @@
     const { useBlockProps, MediaUpload } = wp.blockEditor;
 	const { TextControl, TextareaControl, Button } = wp.components;
 
-    registerBlockType( "plants-plugin/biome", {
+    registerBlockType( "plants-lookbook/biome", {
         title: "Biome",
         category: "custom-blocks",
 		attributes: {

@@ -8,7 +8,7 @@ function plants_plugin_render_biome_block( $attributes ) {
 
     ob_start();
     ?>
-    <div class="wp-block-plants-plugin-biome">
+    <div class="wp-block-plants-lookbook-biome">
         <div>
         <?php if ( $common_name ): ?>
             <h2 class="biome-title"><?php echo $common_name; ?></h2>

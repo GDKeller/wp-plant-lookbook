@@ -1,0 +1,8 @@
+.wp-block-plants-lookbook-biome {
+    position: relative;
+}
+
+.wp-block-plants-lookbook-biome .biome-image {
+    width: 100%;
+    height: auto;
+}

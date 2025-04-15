@@ -10,7 +10,7 @@ import {
 	PanelRow,
 } from "@wordpress/components";
 
-registerBlockType("plants-plugin/species", {
+registerBlockType("plants-lookbook/species", {
 	title: "Species",
 	category: "custom-blocks",
 	attributes: {
@@ -33,7 +33,7 @@ registerBlockType("plants-plugin/species", {
 
 		const blockProps = useBlockProps({
 			className: classNames(
-				"wp-block-plants-plugin-species",
+				"wp-block-plants-lookbook-species",
 				"species-block",
 				flipped ? "flipped" : ""
 			),
@@ -43,7 +43,7 @@ registerBlockType("plants-plugin/species", {
 			<>
 				<InspectorControls>
 					<PanelBody
-						title={__("Settings", "plants-plugin")}
+						title={__("Settings", "plants-lookbook")}
 						initialOpen={true}
 					>
 						<PanelRow>
@@ -86,40 +86,48 @@ registerBlockType("plants-plugin/species", {
 							</div>
 						</div>
 						<div className="species-block__image-wrapper">
-							{speciesImage?.url ? (
-								<div className="species-block__image-container">
-									<img
-										src={speciesImage.url}
-										alt={speciesImage.alt || ""}
-										style={{ maxWidth: "100%", marginTop: "1em" }}
-									/>
-								</div>
-							) : (
-								<MediaUploadCheck>
-									<MediaUpload
-										onSelect={(media: { id: number; url: string; alt: string; }) => {
-											setAttributes({
-												speciesImage: {
-													id: media.id,
-													url: media.url,
-													alt: media.alt
-												}
-											});
-										}}
-										title={__("Choose Image", "plants-plugin")}
-										multiple={false}
-										allowedTypes={["image"]}
-										render={({ open }) => (
-											<Button
-												variant="primary"
-												onClick={open}
-											>
-												{__("Upload Image", "plants-plugin")}
-											</Button>
-										)}
-									/>
-								</MediaUploadCheck>
-							)}
+							<MediaUploadCheck>
+								<MediaUpload
+									onSelect={(media: { id: number; url: string; alt: string; }) => {
+										setAttributes({
+											speciesImage: {
+												id: media.id,
+												url: media.url,
+												alt: media.alt
+											}
+										});
+									}}
+									title={__("Choose Image", "plants-lookbook")}
+									multiple={false}
+									allowedTypes={["image"]}
+									render={({ open }) => (
+										<div className="media-upload-controls">
+											{speciesImage?.url ? (
+												<>
+													<div className="species-block__image-container">
+														<img
+															src={speciesImage?.sizes?.full?.url || speciesImage.url}
+															alt={speciesImage.alt || ""}
+														/>
+													</div>
+													<div>
+														<Button
+															onClick={() => setAttributes({ speciesImage: {} })}
+															variant="secondary"
+														>
+															{__("Remove Image", "plants-lookbook")}
+														</Button>
+													</div>
+												</>
+											) : (
+												<Button onClick={open} variant="secondary">
+													{__("Choose Image", "plants-lookbook")}
+												</Button>
+											)}
+										</div>
+									)}
+								/>
+							</MediaUploadCheck>
 						</div>
 					</div>
 				</div>
