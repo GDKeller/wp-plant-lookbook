@@ -12,13 +12,13 @@
 		flex-direction: row;
 	}
 
-	* {
-		box-sizing: border-box;
-	}
-
 	&__info {
 		display: flex;
 		flex: 1;
+	}
+
+	&__description {
+		max-width: 40rem;
 	}
 
 	&__image-container {
