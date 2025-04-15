@@ -17,7 +17,7 @@ $image_url	= ! empty( $image["url"] ) ? $image["url"] : "";
 $image_alt	= ! empty( $image["alt"] ) ? $image["alt"] : $name;
 
 $classes = ["species-block"];
-$instance_id = uniqid( "species-block-" );
+$instance_id = wp_unique_id( "species-block-" );
 
 if ( ! empty( $attributes["flipped"] ) ) {
 	$classes[] = "flipped";

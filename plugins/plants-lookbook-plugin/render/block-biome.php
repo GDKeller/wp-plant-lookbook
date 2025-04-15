@@ -14,7 +14,7 @@ $image_url          = ! empty( $image["url"] ) ? $image["url"] : "";
 $image_alt          = ! empty( $image["alt"] ) ? $image["alt"] : $name;
 
 $classes            = ["biome-block alignfull"];
-$instance_id        = uniqid( "biome-block-" );
+$instance_id        = wp_unique_id( "biome-block-" );
 
 $classes[] = $content_position;
 
