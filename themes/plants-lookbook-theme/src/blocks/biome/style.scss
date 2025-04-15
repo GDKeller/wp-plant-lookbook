@@ -1,0 +1,77 @@
+/**
+ * Biome Block Styles
+ *
+ * @package plants-lookbook-theme
+ */
+
+ .biome-block {
+    display: flex;
+    margin-bottom: 2rem;
+
+    &.bottomright {
+        align-items: end;
+        justify-content: end;
+    }
+    &.bottomleft {
+        align-items: end;
+        justify-content: start;
+    }
+    &.topleft {
+        align-items: start;
+        justify-content: start;
+    }
+    &.topright {
+        align-items: start;
+        justify-content: end;
+    }
+
+    &__info {
+        height: auto;
+        max-width: 800px;
+        margin-top: auto;
+        position: relative;
+
+        .bottomleft &,
+        .bottomright & {
+            margin-top: auto;
+            padding-top: clamp(4rem, 30vw, 20rem);
+        }
+        .topleft &,
+        .topright & {
+            margin-bottom: auto;
+            padding-bottom: clamp(4rem, 30vw, 20rem);
+        }
+
+        * {
+            color: var(--wp--preset--color--base);
+            text-shadow: 0 0 0.5rem var(--wp--preset--color--contrast);
+        }
+    }
+
+    &__info-inner {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 4rem 3rem 4rem;
+    }
+
+    &__name {
+        margin-bottom: 3rem;
+        margin-top: 0;
+    }
+
+    &__description {
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__image-container {
+        .scrim {
+            background-color: black;
+            opacity: 0%;
+        }
+
+        img {
+            object-position: center 10%;
+        }
+    }
+ }

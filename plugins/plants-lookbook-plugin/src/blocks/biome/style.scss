@@ -1,0 +1,35 @@
+.wp-block-plants-lookbook-biome,
+.biome-block {
+    position: relative;
+
+    &__info {
+        z-index: 10;
+        width: 100%;
+    }
+
+    &__image-container {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+
+        .scrim {
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 2;
+        }
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center 10%;
+            width: 100%;
+            z-index: 1;
+        }
+    }
+}

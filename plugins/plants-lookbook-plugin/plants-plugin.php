@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Plants Lookbook
- * Text Domain: plants-lookbook
+ * Text Domain: plants-lookbook-plugin
  * Description: A plugin to manage plant species and their biomes.
  * Version: 0.1.0
  */
@@ -11,7 +11,7 @@ if ( ! defined( "ABSPATH" ) ) {
 }
 
 function plants_lookbook_get_block_list() {
-	return [ 'species' ];
+	return [ "species", "biome" ];
 }
 
 
@@ -34,7 +34,7 @@ add_filter( "block_categories_all" , function( $categories, $post ) {
 
 function plants_lookbook_register_assets() {
 	foreach ( plants_lookbook_get_block_list() as $block ) {
-		$handle_prefix = "plants-lookbook/{$block}";
+		$handle_prefix = "plants-lookbook-plugin/{$block}";
 		$block_dir     = plugin_dir_path( __FILE__ ) . "dist/blocks/{$block}";
 		$block_url     = plugin_dir_url( __FILE__ ) . "dist/blocks/{$block}";
 
@@ -70,16 +70,16 @@ function plants_lookbook_register_assets() {
 		}
 	}
 }
-add_action( 'init', 'plants_lookbook_register_assets' );
+add_action( "init", "plants_lookbook_register_assets" );
 
 function plants_lookbook_register_blocks() {
     foreach ( plants_lookbook_get_block_list() as $block ) {
 		register_block_type(
 			__DIR__ . "/src/blocks/$block/block.json",
 			[
-				'editor_script'   => "plants-lookbook/$block/block",
-				'editor_style'    => "plants-lookbook/$block/editor",
-				'style'           => "plants-lookbook/$block/style",
+				"editor_script"   => "plants-lookbook-plugin/$block/block",
+				"editor_style"    => "plants-lookbook-plugin/$block/editor",
+				"style"           => "plants-lookbook-plugin/$block/style",
 			]
 		);
 	}
@@ -88,34 +88,21 @@ add_action( "init", "plants_lookbook_register_blocks" );
 
 # Register block styles
 function register_custom_block_style() {
-	wp_register_style(
-		'plants-lookbook/button-small-style',
-		plugins_url( 'dist/block-styles/button-small.css', __FILE__ ),
-		[],
-		filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-small.css' )
-	);
-	wp_register_style(
-		'plants-lookbook/button-rounded-style',
-		plugins_url( 'dist/block-styles/button-rounded.css', __FILE__ ),
-		[],
-		filemtime( plugin_dir_path( __FILE__ ) . 'dist/block-styles/button-rounded.css' )
-	);
-
 	register_block_style(
-		'core/button',
+		"core/button",
 		array(
-			'name'         => 'small',
-			'label'        => 'Small',
-			'style_handle' => 'plants-lookbook/button-small-style',
+			"name"         => "small",
+			"label"        => "Small",
+			"style_handle" => "plants-lookbook-plugin/button-small-style",
 		)
 	);
 	register_block_style(
-		'core/button',
+		"core/button",
 		array(
-			'name'         => 'rounded',
-			'label'        => 'Rounded',
-			'style_handle' => 'plants-lookbook/button-rounded-style',
+			"name"         => "rounded",
+			"label"        => "Rounded",
+			"style_handle" => "plants-lookbook-plugin/button-rounded-style",
 		)
 	);
 }
-add_action( 'init', 'register_custom_block_style' );
+add_action( "init", "register_custom_block_style" );

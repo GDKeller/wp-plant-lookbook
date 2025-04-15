@@ -23,7 +23,7 @@ if ( ! empty( $attributes["flipped"] ) ) {
 	$classes[] = "flipped";
 }
 if ( ! empty( $align ) ) {
-	$classes[] = "align-" . $align;
+	$classes[] = "align" . $align;
 }
 if ( ! empty( $attributes["className"] ) ) {
 	$classes[] = $attributes["className"];

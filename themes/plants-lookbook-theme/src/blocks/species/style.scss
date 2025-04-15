@@ -1,17 +1,11 @@
 /**
  * Species Block Styles
  *
- * @package plants-lookbook
+ * @package plants-lookbook-theme
  */
 
 .species-block {
-	display: flex;
-	flex-direction: column;
 	margin-bottom: 1rem;
-
-	@media screen and (min-width: 601px) {
-		flex-direction: row;
-	}
 
 	* {
 		box-sizing: border-box;
@@ -19,8 +13,6 @@
 
 	&__info {
 		align-items: center;
-		display: flex;
-		flex: 1;
 
 		&-inner {
 			padding: 1rem 1rem 1rem;
@@ -44,8 +36,6 @@
 	}
 
 	&__image-container {
-		flex: 1;
-		overflow: hidden;
 		max-height: 100vh;
 		margin-bottom: 0;
 
@@ -57,17 +47,8 @@
 		}
 	}
 
-	&.alignfull {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
 	// Flipped layout, remove left padding when image on left
 	&.flipped {
-		@media screen and (min-width: 601px) {
-			flex-direction: row-reverse;
-		}
-
 		& &__info-inner {
 			padding: 1.5rem 2rem 2rem 0;
 		}

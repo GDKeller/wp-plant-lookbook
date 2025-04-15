@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "plants-lookbook-plugin/biome",
+	"title": "Biome",
+	"category": "custom-blocks",
+	"description": "A block to display biome information.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"align": ["full"]
+	},
+	"usesContext": [],
+	"providesContext": [],
+	"editorScript": "plants-lookbook-plugin/biome/block",
+	"editorStyle": "plants-lookbook-plugin/biome/editor",
+	"style": "plants-lookbook-plugin/biome/style",
+	"render": "../../../render/block-biome.php",
+	"attributes": {
+		"biomeName": {
+			"type": "string",
+			"default": ""
+		},
+		"biomeContentPosition": {
+			"type": "string",
+			"default": "bottomleft"
+		},
+		"biomeImage": {
+			"type": "object",
+			"default": {}
+		}
+	}
+}

@@ -10,11 +10,10 @@ import {
 	PanelRow,
 } from "@wordpress/components";
 
-registerBlockType("plants-lookbook/species", {
+registerBlockType("plants-lookbook-plugin/species", {
 	title: "Species",
 	category: "custom-blocks",
 	attributes: {
-		anchor: { type: "string", default: "" },
 		flipped: { type: "boolean", default: false },
 		speciesFormalName: { type: "string", default: "" },
 		speciesCommonName: { type: "string", default: "" },
@@ -23,7 +22,6 @@ registerBlockType("plants-lookbook/species", {
 	},
 	edit: ({ attributes, setAttributes }: BlockEditProps<any>) => {
 		const {
-			anchor,
 			flipped,
 			speciesCommonName,
 			speciesFormalName,
@@ -43,7 +41,7 @@ registerBlockType("plants-lookbook/species", {
 			<>
 				<InspectorControls>
 					<PanelBody
-						title={__("Settings", "plants-lookbook")}
+						title={__("Settings", "plants-lookbook-plguin")}
 						initialOpen={true}
 					>
 						<PanelRow>
@@ -56,8 +54,8 @@ registerBlockType("plants-lookbook/species", {
 							</fieldset>
 						</PanelRow>
 					</PanelBody>
-
 				</InspectorControls>
+
 				<div {...blockProps}>
 					<div className="species-block__content">
 						<div className="species-block__info">
@@ -97,7 +95,7 @@ registerBlockType("plants-lookbook/species", {
 											}
 										});
 									}}
-									title={__("Choose Image", "plants-lookbook")}
+									title={__("Choose Image", "plants-lookbook-plugin")}
 									multiple={false}
 									allowedTypes={["image"]}
 									render={({ open }) => (
@@ -115,13 +113,13 @@ registerBlockType("plants-lookbook/species", {
 															onClick={() => setAttributes({ speciesImage: {} })}
 															variant="secondary"
 														>
-															{__("Remove Image", "plants-lookbook")}
+															{__("Remove Image", "plants-lookbook-plugin")}
 														</Button>
 													</div>
 												</>
 											) : (
 												<Button onClick={open} variant="secondary">
-													{__("Choose Image", "plants-lookbook")}
+													{__("Choose Image", "plants-lookbook-plugin")}
 												</Button>
 											)}
 										</div>

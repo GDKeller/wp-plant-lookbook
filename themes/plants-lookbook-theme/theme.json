@@ -434,6 +434,11 @@
 			},
 			"core/list": {
 				"css": "& li{margin-top: 0.5rem;}"
+			},
+			"plants-lookbook-plugin/biome": {
+				"color": {
+					"text": "var:preset|color|base"
+				}
 			}
 		},
 		"elements": {

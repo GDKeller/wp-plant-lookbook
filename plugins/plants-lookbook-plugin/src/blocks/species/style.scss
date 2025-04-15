@@ -1,0 +1,40 @@
+/**
+ * Species Block Styles
+ *
+ * @package plants-lookbook-plugin
+ */
+
+.species-block {
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: 601px) {
+		flex-direction: row;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	&__info {
+		display: flex;
+		flex: 1;
+	}
+
+	&__image-container {
+		flex: 1;
+		overflow: hidden;
+	}
+
+	&.alignfull {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	// Flipped layout, remove left padding when image on left
+	&.flipped {
+		@media screen and (min-width: 601px) {
+			flex-direction: row-reverse;
+		}
+	}
+}
