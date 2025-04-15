@@ -1,3 +1,9 @@
+/**
+ * Species Block Styles
+ *
+ * @package plants-lookbook
+ */
+
 .species-block {
 	display: flex;
 	flex-direction: column;
@@ -12,8 +18,8 @@
 	}
 
 	&__info {
-		display: flex;
 		align-items: center;
+		display: flex;
 		flex: 1;
 
 		&-inner {
@@ -26,12 +32,15 @@
 	}
 
 	&__name {
+		font-weight: bold;
 		margin: 0 0 0.5rem;
+		overflow-wrap: break-word;
 	}
 
 	&__binomial {
-		margin-top: 0;
 		font-style: italic;
+		margin-top: 0;
+		overflow-wrap: break-word;
 	}
 
 	&__image-container {
@@ -42,10 +51,15 @@
 
 		img {
 			display: block;
-			width: 100%;
 			height: 100%;
 			object-fit: cover;
+			width: 100%;
 		}
+	}
+
+	&.alignfull {
+		padding-left: 0;
+		padding-right: 0;
 	}
 
 	// Flipped layout, remove left padding when image on left
@@ -59,11 +73,6 @@
 		}
 	}
 
-	&.alignfull {
-		padding-left: 0;
-		padding-right: 0;
-	}
-
 	// Style: Dark
 	&.is-style-dark {
 		background-color: color-mix(
@@ -72,8 +81,8 @@
 			var(--wp--preset--color--contrast)
 		);
 		color: var(--wp--preset--color--base);
-		padding-top: 0;
 		padding-bottom: 0;
+		padding-top: 0;
 
 		&.flipped {
 			padding-left: 0;
