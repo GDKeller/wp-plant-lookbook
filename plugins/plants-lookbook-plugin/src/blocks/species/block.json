@@ -3,17 +3,25 @@
 	"apiVersion": 3,
 	"name": "plants-lookbook-plugin/species",
 	"title": "Species",
+	"textdomain": "plants-lookbook-plugin",
 	"category": "custom-blocks",
+	"keywords": ["plant", "species"],
 	"description": "A block to display species information.",
-	"example": {},
+	"example": {
+		"attributes": {
+			"speciesCommonName": "Fiddle Leaf Fig",
+			"speciesFormalName": "Ficus lyrata",
+			"speciesDescription": "A popular houseplant known for its large, glossy leaves."
+		}
+	},
 	"supports": {
 		"align": ["wide", "full"],
 		"html": false,
 		"renaming": false
 	},
 	"editorScript": "plants-lookbook-plugin/species/block",
-	"editorStyle": "plants-lookbook-plugin/species/editor",
 	"style": "plants-lookbook-plugin/species/style",
+	"editorStyle": "plants-lookbook-plugin/species/editor",
 	"render": "../../../render/block-species.php",
 	"attributes": {
 		"flipped": {

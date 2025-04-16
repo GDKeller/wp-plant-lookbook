@@ -3,15 +3,15 @@
 	"apiVersion": 3,
 	"name": "plants-lookbook-plugin/biome",
 	"title": "Biome",
+	"textdomain": "plants-lookbook-plugin",
 	"category": "custom-blocks",
+	"keywords": ["plant", "biome"],
 	"description": "A block to display biome information.",
-	"example": {},
 	"supports": {
 		"html": false,
-		"align": ["full"]
+		"align": ["full"],
+		"renaming": false
 	},
-	"usesContext": [],
-	"providesContext": [],
 	"editorScript": "plants-lookbook-plugin/biome/block",
 	"editorStyle": "plants-lookbook-plugin/biome/editor",
 	"style": "plants-lookbook-plugin/biome/style",

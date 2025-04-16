@@ -4,46 +4,77 @@
  * @package plants-lookbook-plugin
  */
 
-.wp-block-plants-lookbook-species,
-.species-block {
-    display: block;
-    position: relative;
+.wp-block-plants-lookbook-species {
+    margin-bottom: 1rem;
 
-    &__content {
-        align-items: normal;
-        display: flex;
-        gap: 1rem;
-
-        > div {
-            flex: 1;
-            width: 50%;
-        }
+    * {
+        box-sizing: border-box;
     }
 
     &__info {
-        align-items: start;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        align-items: center;
+
+        &-inner {
+            padding: 1rem 1rem 1rem;
+
+            @media screen and (min-width: 601px) {
+                padding: 1.5rem 2rem 2rem;
+            }
+        }
+    }
+
+    &__name {
+        font-weight: bold;
+        margin: 0 0 0.5rem;
+        overflow-wrap: break-word;
     }
 
     &__binomial {
         font-style: italic;
+        margin-top: 0;
+        overflow-wrap: break-word;
     }
 
     &__image-container {
-        height: 100%;
-        overflow: hidden;
-        width: 100%;
-        
+        margin-bottom: 0;
+        max-height: 100vh;
+
         img {
-            width: 100%;
+            display: block;
             height: 100%;
             object-fit: cover;
+            width: 100%;
         }
     }
 
-    &.flipped &__content {
-        flex-direction: row-reverse;
+    // Flipped layout, remove left padding when image on left
+    &.is-flipped {
+        & &__info-inner {
+            padding: 1.5rem 2rem 2rem 0;
+        }
+    }
+
+    // Style: Dark
+    &.is-style-dark {
+        background-color: color-mix(in srgb,
+                var(--wp--preset--color--accent-2) 40%,
+                var(--wp--preset--color--contrast));
+        color: var(--wp--preset--color--base);
+        padding-bottom: 0;
+        padding-top: 0;
+
+        &.flipped {
+            padding-left: 0;
+
+            .species-block__info {
+                padding-right: 1rem;
+            }
+        }
+    }
+
+    // Style: Boxed
+    &.is-style-boxed {
+        border: 1px solid var(--wp--preset--color--accent-2);
+        padding: 1rem;
     }
 }

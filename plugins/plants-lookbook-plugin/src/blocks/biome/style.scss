@@ -1,8 +1,17 @@
-.wp-block-plants-lookbook-biome,
-.biome-block {
+/**
+ * Biome Block Styles
+ *
+ * @package plants-lookbook-plugin
+ */
+
+.wp-block-plants-lookbook-biome {
+    background-color: var(--wp--preset--color--contrast);
+    display: flex;
     position: relative;
 
     &__info {
+        display: block;
+        position: relative;
         width: 100%;
         z-index: 10;
     }
@@ -10,19 +19,11 @@
     &__image-container {
         height: 100%;
         left: 0;
+        overflow: hidden;
         position: absolute;
         top: 0;
         width: 100%;
         z-index: 0;
-
-        .scrim {
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 2;
-        }
 
         img {
             height: 100%;

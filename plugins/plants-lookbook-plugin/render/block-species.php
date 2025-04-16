@@ -16,11 +16,11 @@ $image		= $attributes["speciesImage"];
 $image_url	= ! empty( $image["url"] ) ? $image["url"] : "";
 $image_alt	= ! empty( $image["alt"] ) ? $image["alt"] : $name;
 
-$classes = ["species-block"];
-$instance_id = wp_unique_id( "species-block-" );
+$classes = ["wp-block-plants-lookbook-species"];
+$instance_id = wp_unique_id( "wp-block-plants-lookbook-species-" );
 
 if ( ! empty( $attributes["flipped"] ) ) {
-	$classes[] = "flipped";
+	$classes[] = "is-flipped";
 }
 if ( ! empty( $align ) ) {
 	$classes[] = "align" . $align;
@@ -33,20 +33,20 @@ $classes_str = implode( " ", $classes );
 ?>	
 
 <section class="<?php echo esc_attr( $classes_str ); ?>" role="region" aria-labelledby="<?php echo esc_attr( $instance_id ); ?>">
-	<div class="species-block__info">
-		<div class="species-block__info-inner">
-			<h2 id="<?php echo esc_attr( $instance_id ); ?>" class="species-block__name"><?php echo esc_html( $name ); ?></h2>
+	<div class="wp-block-plants-lookbook-species__info">
+		<div class="wp-block-plants-lookbook-species__info-inner">
+			<h2 id="<?php echo esc_attr( $instance_id ); ?>" class="wp-block-plants-lookbook-species__name"><?php echo esc_html( $name ); ?></h2>
 			<?php if ( ! empty( $binomial ) ) :	 ?>
-				<p class="species-block__binomial"><?php echo esc_html( $binomial ); ?></p>
+				<p class="wp-block-plants-lookbook-species__binomial"><?php echo esc_html( $binomial ); ?></p>
 			<?php endif; ?>
 			<?php if ( ! empty( $desc ) ) : ?>
-				<p class="species-block__description"><?php echo esc_html( $desc ); ?></p>
+				<p class="wp-block-plants-lookbook-species__description"><?php echo esc_html( $desc ); ?></p>
 			<?php endif; ?>
 		</div>
 	</div>
 
 	<?php if ( $image_url ) : ?>
-		<figure class="species-block__image-container">
+		<figure class="wp-block-plants-lookbook-species__image-container">
 			<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $image_alt ); ?>" loading="lazy" />
 			<figcaption class="screen-reader-text"><?php echo esc_html( $image_alt ); ?></figcaption>
 		</figure>

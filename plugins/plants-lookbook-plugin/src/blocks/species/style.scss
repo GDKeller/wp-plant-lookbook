@@ -4,7 +4,7 @@
  * @package plants-lookbook-plugin
  */
 
-.species-block {
+.wp-block-plants-lookbook-species {
 	display: flex;
 	flex-direction: column;
 
@@ -32,7 +32,7 @@
 	}
 
 	// Flipped layout, remove left padding when image on left
-	&.flipped {
+	&.is-flipped {
 		@media screen and (min-width: 601px) {
 			flex-direction: row-reverse;
 		}

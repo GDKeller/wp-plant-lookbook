@@ -4,7 +4,7 @@
  * @package plants-lookbook-theme
  */
 
-.species-block {
+.wp-block-plants-lookbook-species {
 	margin-bottom: 1rem;
 
 	* {
@@ -48,7 +48,7 @@
 	}
 
 	// Flipped layout, remove left padding when image on left
-	&.flipped {
+	&.is-flipped {
 		& &__info-inner {
 			padding: 1.5rem 2rem 2rem 0;
 		}
