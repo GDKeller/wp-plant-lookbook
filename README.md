@@ -1,0 +1,2 @@
+## Overview
+This is a matching theme and plugin that provide custom WordPress Gutenberg blocks that serve to create an editorial "lookbook" about botanical subjects, focued on plant species and biomes.
