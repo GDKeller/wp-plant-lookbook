@@ -7,13 +7,13 @@
  * @package Plants Lookbook
  */
 
-$name             = $attributes['biomeName'] ?? '';
+$name = $attributes['biomeName'] ?? '';
 $content_position = $attributes['biomeContentPosition'] ?? 'bottomleft';
-$image            = $attributes['biomeImage'];
-$image_url        = ! empty( $image['url'] ) ? $image['url'] : '';
-$image_alt        = ! empty( $image['alt'] ) ? $image['alt'] : $name;
+$image = $attributes['biomeImage'] ?? [];
+$image_url = ! empty( $image['url'] ) ? $image['url'] : '';
+$image_alt = ! empty( $image['alt'] ) ? $image['alt'] : $name;
 
-$classes     = array( 'wp-block-plants-lookbook-biome', 'alignfull' );
+$classes = array( 'wp-block-plants-lookbook-biome', 'alignfull' );
 $instance_id = wp_unique_id( 'wp-block-plants-lookbook-biome-' );
 
 $classes[] = $content_position;

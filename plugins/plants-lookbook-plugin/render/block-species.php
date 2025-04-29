@@ -7,16 +7,16 @@
  * @package Plants Lookbook
  */
 
-$align    = $attributes['align'] ?? '';
-$name     = $attributes['speciesCommonName'] ?? '';
+$align = $attributes['align'] ?? '';
+$name = $attributes['speciesCommonName'] ?? '';
 $binomial = $attributes['speciesFormalName'] ?? '';
-$desc     = $attributes['speciesDescription'] ?? '';
+$desc = $attributes['speciesDescription'] ?? '';
 
-$image     = $attributes['speciesImage'];
+$image = $attributes['speciesImage'] ?? [];
 $image_url = ! empty( $image['url'] ) ? $image['url'] : '';
 $image_alt = ! empty( $image['alt'] ) ? $image['alt'] : $name;
 
-$classes     = array( 'wp-block-plants-lookbook-species' );
+$classes = array( 'wp-block-plants-lookbook-species' );
 $instance_id = wp_unique_id( 'wp-block-plants-lookbook-species-' );
 
 if ( ! empty( $attributes['flipped'] ) ) {
