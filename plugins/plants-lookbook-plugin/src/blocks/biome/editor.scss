@@ -4,82 +4,84 @@
  * @package plants-lookbook-plugin
  */
 
-.wp-block-plants-lookbook-biome {
-    margin-bottom: 2rem;
+ .wp-block-plants-lookbook-biome {
+	margin-bottom: 2rem;
 
-    &.bottomright {
-        align-items: end;
-        justify-content: end;
-    }
+	// Modifier: content position classes
+	&.bottomright {
+		align-items: end;
+		justify-content: end;
+	}
 
-    &.bottomleft {
-        align-items: end;
-        justify-content: start;
-    }
+	&.bottomleft {
+		align-items: end;
+		justify-content: start;
+	}
 
-    &.topleft {
-        align-items: start;
-        justify-content: start;
-    }
+	&.topleft {
+		align-items: start;
+		justify-content: start;
+	}
 
-    &.topright {
-        align-items: start;
-        justify-content: end;
-    }
+	&.topright {
+		align-items: start;
+		justify-content: end;
+	}
 
-    &__info {
-        height: auto;
-        margin-top: auto;
-        max-width: 800px;
-        position: relative;
-        z-index: 10;
+	// Info section
+	&__info {
+		height: auto;
+		margin-top: auto;
+		max-width: 800px;
+		position: relative;
+		z-index: 10;
 
-        .bottomleft &,
-        .bottomright & {
-            margin-top: auto;
-            
-            @media screen and (min-width: 801px) {
-                padding-top: clamp(4rem, 30vw, 20rem);
-            }
-        }
+		* {
+			color: var(--wp--preset--color--base);
+			text-shadow: 0 0 0.5rem var(--wp--preset--color--contrast);
+		}
 
-        .topleft &,
-        .topright & {
-            margin-bottom: auto;
-            
-            @media screen and (min-width: 801px) {
-                padding-bottom: clamp(4rem, 30vw, 20rem);
-            }
-        }
+		.bottomleft &,
+		.bottomright & {
+			margin-top: auto;
 
-        * {
-            color: var(--wp--preset--color--base);
-            text-shadow: 0 0 0.5rem var(--wp--preset--color--contrast);
-        }
-    }
+			@media screen and (min-width: 801px) {
+				padding-top: clamp(4rem, 30vw, 20rem);
+			}
+		}
 
-    &__info-inner {
-        background-color: rgba(0, 0, 0, 0.7);
-        padding: 4rem 3rem 4rem;
-    }
+		.topleft &,
+		.topright & {
+			margin-bottom: auto;
 
-    &__name {
-        margin-bottom: 3rem;
-        margin-top: 0;
-    }
+			@media screen and (min-width: 801px) {
+				padding-bottom: clamp(4rem, 30vw, 20rem);
+			}
+		}
+	}
 
-    &__description {
-        p:last-child {
-            margin-bottom: 0;
-        }
-    }
+	&__info-inner {
+		background-color: rgba(0, 0, 0, 0.7);
+		padding: 4rem 3rem 4rem;
+	}
 
-    &__image-container {
-        position: absolute;
-        z-index: 0;
+	&__name {
+		margin-bottom: 3rem;
+		margin-top: 0;
+	}
 
-        img {
-            object-position: center 10%;
-        }
-    }
+	&__description {
+		p:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&__image-container {
+		position: absolute;
+		z-index: 0;
+
+		img {
+			object-position: center 10%;
+		}
+	}
 }

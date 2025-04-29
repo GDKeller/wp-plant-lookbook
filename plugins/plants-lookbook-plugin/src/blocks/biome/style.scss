@@ -4,33 +4,36 @@
  * @package plants-lookbook-plugin
  */
 
-.wp-block-plants-lookbook-biome {
-    background-color: var(--wp--preset--color--contrast);
-    display: flex;
-    position: relative;
+ .wp-block-plants-lookbook-biome {
+	background-color: var(--wp--preset--color--contrast);
+	display: flex;
+	position: relative;
+	flex-direction: column; // Ensure consistent layout
 
-    &__info {
-        display: block;
-        position: relative;
-        width: 100%;
-        z-index: 10;
-    }
+	// Info section
+	&__info {
+		display: block;
+		position: relative;
+		width: 100%;
+		z-index: 10;
+	}
 
-    &__image-container {
-        height: 100%;
-        left: 0;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 0;
+	// Image section
+	&__image-container {
+		height: 100%;
+		left: 0;
+		overflow: hidden;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 0;
 
-        img {
-            height: 100%;
-            object-fit: cover;
-            object-position: center 10%;
-            width: 100%;
-            z-index: 1;
-        }
-    }
+		img {
+			height: 100%;
+			object-fit: cover;
+			object-position: center 10%;
+			width: 100%;
+			z-index: 1;
+		}
+	}
 }

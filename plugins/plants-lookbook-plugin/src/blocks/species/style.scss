@@ -4,7 +4,7 @@
  * @package plants-lookbook-plugin
  */
 
-.wp-block-plants-lookbook-species {
+ .wp-block-plants-lookbook-species {
 	display: flex;
 	flex-direction: column;
 
@@ -26,12 +26,13 @@
 		overflow: hidden;
 	}
 
+	// Modifier: full-width
 	&.alignfull {
 		padding-left: 0;
 		padding-right: 0;
 	}
 
-	// Flipped layout, remove left padding when image on left
+	// Modifier: flipped layout
 	&.is-flipped {
 		@media screen and (min-width: 601px) {
 			flex-direction: row-reverse;
