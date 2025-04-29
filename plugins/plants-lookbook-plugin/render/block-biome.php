@@ -7,6 +7,7 @@
  * @package Plants Lookbook
  */
 
+// Setup attributes with safe fallbacks.
 $name = $attributes['biomeName'] ?? '';
 $content_position = $attributes['biomeContentPosition'] ?? 'bottomleft';
 $image = $attributes['biomeImage'] ?? [];
@@ -16,6 +17,7 @@ $image_alt = ! empty( $image['alt'] ) ? $image['alt'] : $name;
 $classes = array( 'wp-block-plants-lookbook-biome', 'alignfull' );
 $instance_id = wp_unique_id( 'wp-block-plants-lookbook-biome-' );
 
+// Build classes.
 $classes[] = $content_position;
 
 if ( ! empty( $attributes['className'] ) ) {
@@ -29,6 +31,7 @@ $classes_str = implode( ' ', $classes );
 	<div class="wp-block-plants-lookbook-biome__info">
 		<div class="wp-block-plants-lookbook-biome__info-inner">
 			<h2 id="<?php echo esc_attr( $instance_id ); ?>" class="wp-block-plants-lookbook-biome__name"><?php echo esc_html( $name ); ?></h2>
+
 			<div class="wp-block-plants-lookbook-biome__description">
 				<?php echo wp_kses_post( $content ); ?>
 			</div>
