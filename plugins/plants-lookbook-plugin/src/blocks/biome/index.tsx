@@ -1,6 +1,13 @@
 import { __ } from '@wordpress/i18n';
 import { BlockEditProps, registerBlockType } from '@wordpress/blocks';
-import { InnerBlocks, InspectorControls, MediaUpload, MediaUploadCheck, RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	InnerBlocks,
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+	useBlockProps,
+} from '@wordpress/block-editor';
 import { Button, PanelBody, SelectControl } from '@wordpress/components';
 import classNames from 'classnames';
 
@@ -24,8 +31,10 @@ interface CustomBlockAttributes {
 
 /**
  * Edit function for the Biome block
+ * @param props
  */
-const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttributes>) => {
+const Edit = (props: BlockEditProps) => {
+	const { attributes, setAttributes } = props;
 	const { biomeName, biomeContentPosition, biomeImage } = attributes;
 
 	const blockProps = useBlockProps({
@@ -33,35 +42,64 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 			'wp-block-plants-lookbook-biome',
 			'alignfull',
 			biomeContentPosition
-		)
+		),
 	});
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Settings', 'plants-lookbook-plugin')} initialOpen={true}>
+				<PanelBody
+					title={__('Settings', 'plants-lookbook-plugin')}
+					initialOpen={true}
+				>
 					<SelectControl
 						label={__('Content Position', 'plants-lookbook-plugin')}
 						value={biomeContentPosition}
 						options={[
-							{ label: __('Bottom Left', 'plants-lookbook-plugin'), value: 'bottomleft' },
-							{ label: __('Bottom Right', 'plants-lookbook-plugin'), value: 'bottomright' },
-							{ label: __('Top Left', 'plants-lookbook-plugin'), value: 'topleft' },
-							{ label: __('Top Right', 'plants-lookbook-plugin'), value: 'topright' }
+							{
+								label: __(
+									'Bottom Left',
+									'plants-lookbook-plugin'
+								),
+								value: 'bottomleft',
+							},
+							{
+								label: __(
+									'Bottom Right',
+									'plants-lookbook-plugin'
+								),
+								value: 'bottomright',
+							},
+							{
+								label: __('Top Left', 'plants-lookbook-plugin'),
+								value: 'topleft',
+							},
+							{
+								label: __(
+									'Top Right',
+									'plants-lookbook-plugin'
+								),
+								value: 'topright',
+							},
 						]}
 						onChange={(value) =>
-							setAttributes({ biomeContentPosition: value as CustomBlockAttributes['biomeContentPosition'] })
+							setAttributes({
+								biomeContentPosition:
+									value as CustomBlockAttributes['biomeContentPosition'],
+							})
 						}
 					/>
 					<MediaUploadCheck>
 						<MediaUpload
-							onSelect={(media: CustomBlockAttributes['biomeImage']) =>
+							onSelect={(
+								media: CustomBlockAttributes['biomeImage']
+							) =>
 								setAttributes({
 									biomeImage: {
 										id: media.id,
 										url: media.url,
-										alt: media.alt
-									}
+										alt: media.alt,
+									},
 								})
 							}
 							title={__('Choose Image', 'plants-lookbook-plugin')}
@@ -73,24 +111,47 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 										<>
 											<div>
 												<img
-													src={biomeImage?.sizes?.full?.url ?? biomeImage.url ?? ''}
-													alt={biomeImage.alt || biomeName || ''}
+													src={
+														biomeImage?.sizes?.full
+															?.url ??
+														biomeImage.url ??
+														''
+													}
+													alt={
+														biomeImage.alt ||
+														biomeName ||
+														''
+													}
 												/>
 											</div>
 											<Button
 												onClick={() =>
 													setAttributes({
-														biomeImage: { id: undefined, url: '', alt: '', sizes: {} }
+														biomeImage: {
+															id: undefined,
+															url: '',
+															alt: '',
+															sizes: {},
+														},
 													})
 												}
 												variant="secondary"
 											>
-												{__('Remove Image', 'plants-lookbook-plugin')}
+												{__(
+													'Remove Image',
+													'plants-lookbook-plugin'
+												)}
 											</Button>
 										</>
 									) : (
-										<Button onClick={open} variant="secondary">
-											{__('Choose Image', 'plants-lookbook-plugin')}
+										<Button
+											onClick={open}
+											variant="secondary"
+										>
+											{__(
+												'Choose Image',
+												'plants-lookbook-plugin'
+											)}
 										</Button>
 									)}
 								</div>
@@ -107,12 +168,27 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 							tagName="h2"
 							className="wp-block-plants-lookbook-biome__name"
 							value={biomeName}
-							onChange={(value: string) => setAttributes({ biomeName: value })}
-							placeholder={__('Enter biome name', 'plants-lookbook-plugin')}
+							onChange={(value: string) =>
+								setAttributes({ biomeName: value })
+							}
+							placeholder={__(
+								'Enter biome name',
+								'plants-lookbook-plugin'
+							)}
 						/>
 						<InnerBlocks
 							allowedBlocks={['core/paragraph']}
-							template={[['core/paragraph', { placeholder: __('Enter biome description', 'plants-lookbook-plugin') }]]}
+							template={[
+								[
+									'core/paragraph',
+									{
+										placeholder: __(
+											'Enter biome description',
+											'plants-lookbook-plugin'
+										),
+									},
+								],
+							]}
 							templateLock={false}
 						/>
 					</div>
@@ -121,7 +197,11 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 				<div className="wp-block-plants-lookbook-biome__image-container">
 					{biomeImage?.url ? (
 						<img
-							src={biomeImage?.sizes?.full?.url ?? biomeImage.url ?? ''}
+							src={
+								biomeImage?.sizes?.full?.url ??
+								biomeImage.url ??
+								''
+							}
 							alt={biomeImage.alt || biomeName || ''}
 						/>
 					) : (
@@ -139,9 +219,7 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
  * Save function for the Biome block
  */
 const Save = () => {
-	return (
-		<InnerBlocks.Content />
-	);
+	return <InnerBlocks.Content />;
 };
 
 /**
@@ -153,8 +231,8 @@ registerBlockType('plants-lookbook-plugin/biome', {
 	attributes: {
 		biomeName: { type: 'string', default: '' },
 		biomeContentPosition: { type: 'string', default: 'bottomleft' },
-		biomeImage: { type: 'object', default: {} }
+		biomeImage: { type: 'object', default: {} },
 	},
 	edit: Edit,
-	save: Save
+	save: Save,
 });

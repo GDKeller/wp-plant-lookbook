@@ -1,6 +1,12 @@
 import { __ } from '@wordpress/i18n';
 import { BlockEditProps, registerBlockType } from '@wordpress/blocks';
-import { InspectorControls, MediaUpload, MediaUploadCheck, RichText, useBlockProps } from '@wordpress/block-editor';
+import {
+	InspectorControls,
+	MediaUpload,
+	MediaUploadCheck,
+	RichText,
+	useBlockProps,
+} from '@wordpress/block-editor';
 import { Button, PanelBody, ToggleControl } from '@wordpress/components';
 import classNames from 'classnames';
 
@@ -26,20 +32,31 @@ interface CustomBlockAttributes {
 
 /**
  * Edit function for the Species block
+ * @param props
  */
-const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttributes>) => {
-	const { flipped, speciesCommonName, speciesFormalName, speciesDescription, speciesImage } = attributes;
+const Edit = (props: BlockEditProps) => {
+	const { attributes, setAttributes } = props;
+	const {
+		flipped,
+		speciesCommonName,
+		speciesFormalName,
+		speciesDescription,
+		speciesImage,
+	} = attributes;
 
 	const blockProps = useBlockProps({
 		className: classNames('wp-block-plants-lookbook-species', {
-			'is-flipped': flipped
-		})
+			'is-flipped': flipped,
+		}),
 	});
 
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Settings', 'plants-lookbook-plugin')} initialOpen={true}>
+				<PanelBody
+					title={__('Settings', 'plants-lookbook-plugin')}
+					initialOpen={true}
+				>
 					<ToggleControl
 						label={__('Flip Layout', 'plants-lookbook-plugin')}
 						checked={flipped}
@@ -55,22 +72,37 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 							tagName="h2"
 							className="wp-block-plants-lookbook-species__name"
 							value={speciesCommonName}
-							onChange={(value: string) => setAttributes({ speciesCommonName: value })}
-							placeholder={__('Species name', 'plants-lookbook-plugin')}
+							onChange={(value: string) =>
+								setAttributes({ speciesCommonName: value })
+							}
+							placeholder={__(
+								'Species name',
+								'plants-lookbook-plugin'
+							)}
 						/>
 						<RichText
 							tagName="h3"
 							className="wp-block-plants-lookbook-species__binomial"
 							value={speciesFormalName}
-							onChange={(value: string) => setAttributes({ speciesFormalName: value })}
-							placeholder={__('Scientific name', 'plants-lookbook-plugin')}
+							onChange={(value: string) =>
+								setAttributes({ speciesFormalName: value })
+							}
+							placeholder={__(
+								'Scientific name',
+								'plants-lookbook-plugin'
+							)}
 						/>
 						<RichText
 							tagName="p"
 							className="wp-block-plants-lookbook-species__description"
 							value={speciesDescription}
-							onChange={(value: string) => setAttributes({ speciesDescription: value })}
-							placeholder={__('Species description', 'plants-lookbook-plugin')}
+							onChange={(value: string) =>
+								setAttributes({ speciesDescription: value })
+							}
+							placeholder={__(
+								'Species description',
+								'plants-lookbook-plugin'
+							)}
 						/>
 					</div>
 				</div>
@@ -78,13 +110,15 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 				<div className="wp-block-plants-lookbook-species__image-container">
 					<MediaUploadCheck>
 						<MediaUpload
-							onSelect={(media: CustomBlockAttributes['speciesImage']) =>
+							onSelect={(
+								media: CustomBlockAttributes['speciesImage']
+							) =>
 								setAttributes({
 									speciesImage: {
 										id: media.id,
 										url: media.url,
-										alt: media.alt
-									}
+										alt: media.alt,
+									},
 								})
 							}
 							title={__('Choose Image', 'plants-lookbook-plugin')}
@@ -96,24 +130,43 @@ const Edit = ({ attributes, setAttributes }: BlockEditProps<CustomBlockAttribute
 										<>
 											<div>
 												<img
-													src={speciesImage?.sizes?.full?.url ?? speciesImage?.url ?? ''}
+													src={
+														speciesImage?.sizes
+															?.full?.url ??
+														speciesImage?.url ??
+														''
+													}
 													alt={speciesImage.alt || ''}
 												/>
 											</div>
 											<Button
 												onClick={() =>
 													setAttributes({
-														speciesImage: { id: undefined, url: '', alt: '', sizes: {} }
+														speciesImage: {
+															id: undefined,
+															url: '',
+															alt: '',
+															sizes: {},
+														},
 													})
 												}
 												variant="secondary"
 											>
-												{__('Remove Image', 'plants-lookbook-plugin')}
+												{__(
+													'Remove Image',
+													'plants-lookbook-plugin'
+												)}
 											</Button>
 										</>
 									) : (
-										<Button onClick={open} variant="secondary">
-											{__('Choose Image', 'plants-lookbook-plugin')}
+										<Button
+											onClick={open}
+											variant="secondary"
+										>
+											{__(
+												'Choose Image',
+												'plants-lookbook-plugin'
+											)}
 										</Button>
 									)}
 								</div>
@@ -141,8 +194,8 @@ registerBlockType('plants-lookbook-plugin/species', {
 		speciesFormalName: { type: 'string', default: '' },
 		speciesCommonName: { type: 'string', default: '' },
 		speciesDescription: { type: 'string', default: '' },
-		speciesImage: { type: 'object', default: {} }
+		speciesImage: { type: 'object', default: {} },
 	},
 	edit: Edit,
-	save: Save
+	save: Save,
 });
