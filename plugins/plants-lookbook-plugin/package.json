@@ -5,7 +5,14 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "test": "./node_modules/.bin/eslint ."
+    "test": "./node_modules/.bin/eslint .",
+    "test-fix": "./node_modules/.bin/eslint . --fix",
+    "eslint": "npm run test",
+    "eslint-fix": "npm run test-fix",
+    "test-php": "php vendor/bin/phpcs --standard=WordPress render/",
+    "test-php-fix": "php vendor/bin/phpcbf --standard=WordPress render/",
+    "phpcs": "npm run test-php",
+    "phpcbf": "npm run test-php-fix"
   },
   "keywords": [],
   "author": "",
